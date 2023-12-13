@@ -441,9 +441,27 @@ ESERCIZIO 12) Crea un selettore per selezionare il secondo link del footer
         /* JS Exercises should go here */
 
         // EXTRA Crea con JavaScript la funzionalità per rimuovere il link "twitter" sotto alla sezione "Altro" nell'elemento "aside". Deve avvenire al caricamento della pagina, automticamente.
+          
+        window.onload = function () {
+           let twitterLink =  document.querySelector("aside div:last-of-type ol li:nth-child(2) a");
+           twitterLink.remove();
+        }
+
         // EXTRA Crea con JavaScript la funzionalità per rimuovere il corrispondente elemento padre dal DOM cliccando sul link "Continua a leggere".
+
+        let keepReading = document.querySelector(".stretched-link");
+        keepReading.addEventListener("click", () => {
+            keepReading.parentNode.remove();
+        } );
+
         // EXTRA Crea con JavaScript la funzionalità per creare un alert col nome dell'autore ogni volta che il cursore passa sopra l'autore del post.
 
+        let authorNames = document.querySelectorAll("main div div div p a");
+        for(let i = 0; i < authorNames.length; i++) {
+            authorNames[i].addEventListener("mouseover", () => {
+               alert(authorNames[i].textContent);
+           }  )
+        }
     </script>
 </body>
 
